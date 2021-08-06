@@ -1,0 +1,7 @@
+apiVersion: "example.com/v1alpha1"
+kind: "Vlan"
+metadata:
+  name: "marketing"
+  namespace: "vlans"
+spec:
+  description: "Marketing"

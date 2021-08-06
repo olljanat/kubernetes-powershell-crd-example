@@ -1,0 +1,33 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: vlans.example.com
+spec:
+  group: example.com
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              description:
+                minLength: 1
+                pattern: ^[-\w\._\(\)]+$
+                type: string
+          status:
+            properties:
+              provisioned:
+                type: boolean
+              vlanID:
+                type: integer
+            type: object
+  scope: Namespaced
+  names:
+    kind: Vlan
+    plural: vlans
+    singular: vlan
